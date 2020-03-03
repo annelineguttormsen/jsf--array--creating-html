@@ -49,8 +49,7 @@ console.log("Triple letters (for loop): ", tripleLetters);
 
 // call array.map and store the result
 let tripleLettersMap = letters.map(function(letter) {
-    // return the mapped item
-    return letter; /*** ANSWER BY UPDATING THIS LINE ***/
+    return (letter + letter + letter); /*** ANSWER BY UPDATING THIS LINE ***/
 });
 
 console.log("Triple letters (map): ", tripleLettersMap);
@@ -76,9 +75,12 @@ for(let i = 0; i < numbers.length; i++) {
 
 console.log("Raised to power of 2 (for loop): ", squared);
 
-
 // call array.map and store the result
 let squaredMap = numbers; /*** ANSWER BY CALLING MAP ON numbers (similar to the other questions) ***/
+
+squaredMap = squaredMap.map((number)=> {
+    return number * number;
+});
 
 console.log("Raised to power of 2 (map): ", squaredMap);
 

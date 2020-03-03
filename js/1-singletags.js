@@ -28,7 +28,7 @@ const paragraph = "Fusce vel dui. Nunc nulla. Sed mollis, eros et ultrices tempu
 
 // function to convert from data to HTML string
 function renderParagraph(text) {
-    return ``; /******* Answer here (instead of empty string) ********/
+    return `<p>${text}</p>`; 
 }
 
 // create HTML from the data
@@ -47,11 +47,13 @@ const quote = "Four score and seven years ago our fathers brought forth on this 
 
 // function to convert from data to HTML string
 
-/******* Answer here ********/
+function renderBlockQuote(text) {
+	return `<blockquote>${text}</blockquote>`;
+}
 
 
 // create HTML from the data
-var htmlString = "" /******* Call the function here (instead of the empty string ********/;
+var htmlString = renderBlockQuote(quote) ;
 // add the HTML into the page
 document.body.innerHTML += htmlString;
 
@@ -92,9 +94,12 @@ const link = {
 };
 
 // function to convert from data to HTML string
+function renderLink(obj) {
+	return `<a href="${obj.href}">${obj.text}</a>`;
+}
 
 
 // create HTML from the data
-
+htmlString = renderLink(link);
 // add the HTML into the page
-
+document.body.innerHTML += htmlString;

@@ -15,7 +15,7 @@
 // 
 // 7. BONUS TASK - use array.filter to only show characters that are alive.
 
-
+/*
 //IT'S OLD I KNOOOW dont kill me
 if (window.XMLHttpRequest) {
     var xhr = new XMLHttpRequest();
@@ -43,7 +43,32 @@ xhr.onreadystatechange = function(){
 }
 //true står for om det er asynchronous eller ikke
 xhr.open("GET",url,true);
-xhr.send();
+xhr.send();*/
+
+//from google developers
+fetch('https://rickandmortyapi.com/api/character/')
+  .then(
+    function(response) {
+      if (response.status !== 200) {
+        console.log('Looks like there was a problem. Status Code: ' +
+          response.status);
+        return;
+      }
+
+      // Examine the text in the response
+      response.json().then(function(data) {
+        data = data.results.filter((i)=>{
+        	return (i.status == "Alive");
+        });
+        data = data.map(renderCharacter);
+        document.body.innerHTML += data;
+      });
+    }
+  )
+  .catch(function(err) {
+    console.log('Fetch Error :-S', err);
+  });
+
 
 function renderCharacter(character) {
 	return `
@@ -53,3 +78,4 @@ function renderCharacter(character) {
 	<img src="${character.image}">
 	`;
 }
+

@@ -50,8 +50,7 @@ fetch('https://rickandmortyapi.com/api/character/')
   .then(
     function(response) {
       if (response.status !== 200) {
-        console.log('Looks like there was a problem. Status Code: ' +
-          response.status);
+        console.log('Looks like there was a problem. Status Code: ' + response.status);
         return;
       }
 
@@ -60,7 +59,7 @@ fetch('https://rickandmortyapi.com/api/character/')
         data = data.results.filter((i)=>{
         	return (i.status == "Alive");
         });
-        data = data.map(renderCharacter);
+        data = data.map(renderCharacter).join("");
         document.body.innerHTML += data;
       });
     }
